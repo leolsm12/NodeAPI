@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import routeDataRoutes from './routes/RouteDataRoutes';
+import routeDataRoutes from './apiData/routes/RouteDataRoutes';
 
 dotenv.config();
 
