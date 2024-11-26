@@ -1,4 +1,15 @@
-export const Drivers = [
+export interface Driver {
+  id: number;
+  nome: string;
+  descricao: string;
+  carro: string;
+  avaliacao: string;
+  taxaKm: number;
+  kmMinimo: number;
+}
+
+
+export const Drivers: Driver[] = [
     {
       id: 1,
       nome: 'Homer Simpson',
@@ -7,7 +18,7 @@ export const Drivers = [
       carro: 'Plymouth Valiant 1973 rosa e enferrujado',
       avaliacao: '2/5 - Motorista simpático, mas errou o caminho 3 vezes. O carro cheira a donuts.',
       taxaKm: 2.5, // R$/km
-      kMminimo: 1,
+      kmMinimo: 1,
     },
     {
       id: 2,
@@ -17,7 +28,7 @@ export const Drivers = [
       carro: 'Dodge Charger R/T 1970 modificado',
       avaliacao: '4/5 - Que viagem incrível! O carro é um show à parte e o motorista, apesar de ter uma cara de poucos amigos, foi super gente boa. Recomendo!',
       taxaKm: 5.0, // R$/km
-      minimo: 5,
+      kmMinimo: 5,
     },
     {
       id: 3,
@@ -27,6 +38,6 @@ export const Drivers = [
       carro: 'Aston Martin DB5 clássico',
       avaliacao: '5/5 - Serviço impecável! O motorista é a própria definição de classe e o carro é simplesmente magnífico. Uma experiência digna de um agente secreto.',
       taxaKm: 10.0, // R$/km
-      minimo: 10,
+      kmMinimo: 10,
     },
   ];

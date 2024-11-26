@@ -4,6 +4,6 @@ import { getRouteDataController } from '../controllers/RouteDataController';
 
 const router = Router();
 
-router.get('/route', getRouteDataController);
+router.post('/route', getRouteDataController);
 
 export default router;
