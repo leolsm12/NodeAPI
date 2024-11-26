@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const SolicitarViagem = () => {
@@ -53,7 +53,7 @@ const SolicitarViagem = () => {
     }
     
   };
-  console.log("rideData2",rideData)
+
   return (
     <div>
       <h2>Solicitar Viagem</h2>
@@ -101,7 +101,7 @@ const SolicitarViagem = () => {
           </div>
           {/* Mapa estático da rota */}
           <img
-            src={`https://maps.googleapis.com/maps/api/staticmap?size=600x400&path=enc:encoded-polyline-here&markers=${rideData.origin.latitude},${rideData.origin.longitude}&markers=${rideData.destination.latitude},${rideData.destination.longitude}&path=color:0x0000ff|weight:3|${rideData.origin.latitude},${rideData.origin.longitude}|${rideData.destination.latitude},${rideData.destination.longitude}&key=AIzaSyB7lhmpxcqcUao5KiHViWCBnF7NavPyZUo`}
+            src={`https://maps.googleapis.com/maps/api/staticmap?size=600x400&markers=${rideData.origin.latitude},${rideData.origin.longitude}&markers=${rideData.destination.latitude},${rideData.destination.longitude}&path=color:0x0000ff|weight:3|${rideData.origin.latitude},${rideData.origin.longitude}|${rideData.destination.latitude},${rideData.destination.longitude}&key=`}
             alt="Mapa da rota"
           />
           <h3>Opções de Motoristas</h3>
