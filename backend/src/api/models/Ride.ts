@@ -1,10 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Driver } from 'typeorm';
 
-
 @Entity()
 export class Ride {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  customer_id: string;
 
   @Column()
   origin: string;
@@ -13,12 +15,18 @@ export class Ride {
   destination: string;
 
   @Column()
-  date: Date;
-
+  duration: string;
+  
+  @Column()
+  distance:number
+ 
   @Column()
   driverName: string;
 
   @Column()
-  userId: number;
+  driverId: number;
+
+  @Column()
+  value: number;
   // Outros campos necessários
 }
