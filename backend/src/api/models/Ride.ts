@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Driver } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn  } from 'typeorm';
 
 @Entity()
 export class Ride {
@@ -14,6 +14,9 @@ export class Ride {
   @Column()
   destination: string;
 
+  @CreateDateColumn()
+  data: Date;
+
   @Column()
   duration: string;
   
@@ -28,5 +31,5 @@ export class Ride {
 
   @Column()
   value: number;
-  // Outros campos necessários
+  
 }

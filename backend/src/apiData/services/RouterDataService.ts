@@ -28,7 +28,7 @@ export async function getRouteData(origin: string, destination: string) {
           latitude: leg.end_location.lat,
           longitude: leg.end_location.lng,
         },
-        distance: leg.distance.value / 1000, // Distância em km
+        distance: leg.distance.value / 1000,
         duration: leg.duration.text,
       };
     } else {

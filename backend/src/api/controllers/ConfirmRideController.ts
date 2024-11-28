@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import { saveRideToMockDatabase, validateDriverOption,   } from '../services/RideService';
+import { Ride } from '../models/Ride';
 
 
-// Controlador para confirmar a viagem
+
 export async function confirmRide(req: Request, res: Response): Promise<any> {
   const { customer_id, origin, destination, distance, duration, driver, value } = req.body;
 
-  // Validações de entrada
   if (!customer_id || !origin || !destination || !driver || !value) {
     return res.status(400).json({
       error_code: 'INVALID_DATA',
@@ -21,7 +21,7 @@ export async function confirmRide(req: Request, res: Response): Promise<any> {
     });
   }
 
-  // Verifica se o motorista é válido
+
   const isDriverValid = validateDriverOption(driver, distance);
   if (!isDriverValid) {
     return res.status(400).json({
@@ -31,19 +31,20 @@ export async function confirmRide(req: Request, res: Response): Promise<any> {
   }
 
   try {
-    // Dados a serem salvos no banco
-    const rideData = {
-      customer_id,
-      origin,
-      destination,
-      distance,
-      duration,
-      driverName: driver.name,
-      driverId: driver.id,
-      value,
+
+    const rideData: Omit<Ride, 'id'> = {
+      customer_id: customer_id,
+      origin: origin,
+      destination: destination,
+      distance: distance, 
+      data: new Date(), 
+      duration: duration, 
+      driverName: driver.name, 
+      driverId: driver.id, 
+      value: value, 
     };
 
-    // Salva no banco
+   
     const savedRide = await saveRideToMockDatabase(rideData);
 
     return res.status(200).json({

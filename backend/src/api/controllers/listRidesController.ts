@@ -5,9 +5,9 @@ export async function listRidesByCustomer(req: Request, res: Response):Promise<a
     const { customer_id } = req.params;
     const { driver_id } = req.query;
   
-    console.log('customer_id:', customer_id); // Verifica o valor do customer_id
+    console.log('customer_id:', customer_id); 
     console.log('driver_id:', driver_id )
-    // Validações
+  
     if (!customer_id) {
       return res.status(400).json({
         error_code: 'INVALID_DATA',
@@ -26,13 +26,14 @@ export async function listRidesByCustomer(req: Request, res: Response):Promise<a
         });
       }
   
-      // Formata a resposta
+      
       const response = {
         customer_id,
         rides: rides.map(ride => ({
           id: ride.id,
           origin: ride.origin,
           destination: ride.destination,
+          data: ride.data,
           distance: ride.distance,
           duration: ride.duration,
           driver: {
